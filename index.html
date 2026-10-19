@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Decision Helper BD - Weighted Decision Helper</title>
+<meta name="description" content="Offline bilingual weighted decision helper: score options against weighted criteria, see the ranking and what could flip the winner.">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">
+    <h1 id="app-title">Decision Helper</h1>
+    <p id="app-sub">Weigh your options. You decide.</p>
+  </div>
+  <div class="top-actions">
+    <button type="button" id="btn-lang" class="btn">Bangla</button>
+    <button type="button" id="btn-new" class="btn secondary">New decision</button>
+    <button type="button" id="btn-saved" class="btn secondary">Saved</button>
+    <button type="button" id="btn-export" class="btn secondary">Export</button>
+    <button type="button" id="btn-import" class="btn secondary">Import</button>
+    <button type="button" id="btn-print" class="btn secondary">Print summary</button>
+    <button type="button" id="btn-erase" class="btn danger">Erase all</button>
+  </div>
+</header>
+
+<main class="layout">
+  <p id="honesty-note" class="honesty">Scores are your own judgments. This tool only computes &mdash; it does not decide for you.</p>
+  <div id="form-errors" class="alert" style="display:none"></div>
+  <div id="form-ok" class="ok" style="display:none"></div>
+
+  <section id="editor" class="card">
+    <div class="field">
+      <label id="lbl-title" for="f-title">Decision title</label>
+      <input type="text" id="f-title" maxlength="120" placeholder="e.g. Which laptop should I buy?">
+    </div>
+    <div class="field">
+      <label id="lbl-question" for="f-question">Question (optional)</label>
+      <textarea id="f-question" rows="2" maxlength="500" placeholder="What exactly are you deciding?"></textarea>
+    </div>
+    <div id="criteria-box" class="block"></div>
+    <div id="options-box" class="block"></div>
+    <div id="scores-box" class="block"></div>
+    <div id="proscons-box" class="block"></div>
+    <div class="actions">
+      <button type="button" id="btn-save" class="btn primary">Save decision</button>
+    </div>
+  </section>
+
+  <section id="results-box" class="card print-results" aria-live="polite"></section>
+
+  <section id="saved-panel" class="card" style="display:none">
+    <h3 id="saved-title">Saved decisions</h3>
+    <div id="saved-list"></div>
+  </section>
+</main>
+
+<input type="file" id="file-import" accept=".json,application/json" style="display:none">
+
+<script src="js/logic.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
